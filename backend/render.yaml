@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: datacode-api
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.10.12
+    # Optional: we map a disk for SQLite so progress isn't wiped between deployments.
+    disk:
+      name: sqlite-data
+      mountPath: /data
+      sizeGB: 1

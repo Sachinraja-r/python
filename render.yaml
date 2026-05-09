@@ -8,8 +8,4 @@ services:
     envVars:
       - key: PYTHON_VERSION
         value: 3.10.12
-    # Optional: we map a disk for SQLite so progress isn't wiped between deployments.
-    disk:
-      name: sqlite-data
-      mountPath: /data
-      sizeGB: 1
+
